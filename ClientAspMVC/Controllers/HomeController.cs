@@ -4,27 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using DataObjects.Entities;
+
 namespace ClientAspMVC.Controllers
 {
     [HandleError]
     public class HomeController : Controller
     {
-        public ActionResult Test()
-        {
-
-            return new JsonResult();
-        }
-        
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
+            var session = MvcApplication.SessionFactory.GetCurrentSession();
+            var customers = session.QueryOver<Customer>().List();
 
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            return View();
+            return View(customers);
         }
     }
 }

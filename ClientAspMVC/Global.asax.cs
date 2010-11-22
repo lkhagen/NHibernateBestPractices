@@ -8,6 +8,7 @@ using DataObjects.Entities;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
+using NHibernate.Context;
 
 namespace ClientAspMVC
 {
@@ -34,21 +35,29 @@ namespace ClientAspMVC
         {
             SessionFactory = CreateSessionFactory();
             
-            EndRequest += delegate
-            {
-                //
-            };
-            
             AreaRegistration.RegisterAllAreas();
 
             RegisterRoutes(RouteTable.Routes);
         }
 
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var session = SessionFactory.OpenSession();
+            CurrentSessionContext.Bind(session);
+        }
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            var session = CurrentSessionContext.Unbind(SessionFactory);
+            session.Dispose();
+        }
+
         private static ISessionFactory CreateSessionFactory()
         {
             var configuration = Fluently.Configure()
-                .Database(MySQLConfiguration.Standard.ConnectionString
-                              (c => c.Server("localhost").Database("nh3test").Username("root").Password("enginering")))
+                .Database(MySQLConfiguration.Standard
+                    .ConnectionString (c => c.Server("localhost").Database("nh3test").Username("root").Password("enginering"))
+                    .CurrentSessionContext<WebSessionContext>() )
                 .Mappings(x => x.FluentMappings.AddFromAssemblyOf<Customer>())
                 .BuildConfiguration();
 
