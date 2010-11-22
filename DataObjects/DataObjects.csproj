@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{43D434B5-4216-4033-9D5A-73240DDF69F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataObjects</RootNamespace>
+    <AssemblyName>DataObjects</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.1.0.694, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.0.0.1003, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Mapping\CustomerMap.cs" />
+    <Compile Include="Mapping\OrderMap.cs" />
+    <Compile Include="Mapping\ProductMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Libs\Antlr3.Runtime.dll" />
+    <Content Include="Libs\Castle.Core.dll" />
+    <Content Include="Libs\Castle.Core.xml" />
+    <Content Include="Libs\Castle.DynamicProxy2.dll" />
+    <Content Include="Libs\Castle.DynamicProxy2.xml" />
+    <Content Include="Libs\FluentNHibernate.dll" />
+    <Content Include="Libs\FluentNHibernate.pdb" />
+    <Content Include="Libs\Iesi.Collections.dll" />
+    <Content Include="Libs\Iesi.Collections.pdb" />
+    <Content Include="Libs\Iesi.Collections.xml" />
+    <Content Include="Libs\log4net.dll" />
+    <Content Include="Libs\log4net.xml" />
+    <Content Include="Libs\MySql.Data.dll" />
+    <Content Include="Libs\NHibernate.ByteCode.Castle.dll" />
+    <Content Include="Libs\NHibernate.ByteCode.Castle.pdb" />
+    <Content Include="Libs\NHibernate.ByteCode.Castle.xml" />
+    <Content Include="Libs\NHibernate.dll" />
+    <Content Include="Libs\NHibernate.pdb" />
+    <Content Include="Libs\NHibernate.xml" />
+    <Content Include="Libs\Remotion.Data.Linq.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Libs\nhibernate-configuration.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Libs\nhibernate-mapping.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
