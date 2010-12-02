@@ -57,6 +57,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="PresentationNotes\Global.txt" />
+    <Content Include="PresentationNotes\HomeController.txt" />
     <Content Include="Libs\Antlr3.Runtime.dll" />
     <Content Include="Libs\Castle.Core.dll" />
     <Content Include="Libs\Castle.Core.xml" />
@@ -77,6 +79,8 @@
     <Content Include="Libs\NHibernate.pdb" />
     <Content Include="Libs\NHibernate.xml" />
     <Content Include="Libs\Remotion.Data.Linq.dll" />
+    <Content Include="PresentationNotes\NNUG Snippets - 24.11.2010.txt" />
+    <Content Include="PresentationNotes\SessionFactory.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Libs\nhibernate-configuration.xsd">
